@@ -4,9 +4,9 @@ First of all, install `gulp` and all dependencies:
 
     $ npm install
 
-Put SVG icons to `/raw_icons`. Then run
+Put SVG icons to `/raw-icons`. Then run
 
-    $ gulp
+    $ gulp simple
 
 to generate various fonts and css
 
@@ -14,4 +14,5 @@ to generate various fonts and css
 
 to generate css with embedded `.woff2` font
 
+Executing `gulp all` or `gulp` (default task) will generate all font files and two versions of css: with linked and embedded font files.
 

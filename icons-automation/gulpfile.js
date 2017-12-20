@@ -13,7 +13,7 @@ var del = require('del');
 gulp.task('clean', function () {
   return del([
     'optimized-icons/*',
-    'dist/*',
+   // 'dist/*',
   ]);
 });
 
@@ -35,16 +35,14 @@ gulp.task('iconfont', ['svgo'], function(){
       .on('glyphs', function(glyphs, options) {
         console.log(glyphs, options);
       })
-    .pipe(gulp.dest('dist/fonts/'));
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('iconfontCss', ['svgo'], function(){
   gulp.src(['optimized-icons/*.svg'])
     .pipe(iconfontCss({
       fontName: fontName,
-      // path: 'dist/_icons.scss',
-      targetPath: 'qgrid-icons.css',
-      // fontPath: 'dist/fonts/'
+      targetPath: fontName+'.css',
     }))
     .pipe(iconfont({
       fontName: fontName,
@@ -58,12 +56,14 @@ gulp.task('iconfontCss', ['svgo'], function(){
 
 
 gulp.task('embedFont', ['iconfont'], function() {
-return gulp.src(['dist/fonts/*'])
-  .pipe(inlineFonts({ name: 'qgrid-icons' }))
-  .pipe(gulp.dest('dist/fonts/'));
+return gulp.src(['dist/*'])
+  .pipe(inlineFonts({ name: fontName }))
+  .pipe(gulp.dest('dist/embedded'));
 });
 
 
 
-gulp.task('default', ['clean', 'svgo', 'iconfontCss']);
+gulp.task('simple', ['clean', 'svgo', 'iconfontCss']);
 gulp.task('embedded', ['clean', 'svgo', 'iconfont', 'embedFont']);
+gulp.task('all', ['clean', 'svgo', 'simple', 'embedded']);
+gulp.task('default', ['all']);
