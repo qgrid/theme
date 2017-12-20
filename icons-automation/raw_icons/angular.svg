@@ -1,0 +1,14 @@
+<svg width="60" height="64" viewBox="0 0 60 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>angular</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2132 -438)">
+<g id="angular">
+<g id="Exclude">
+<use xlink:href="#path0_fill" transform="translate(2132.12 438.887)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 24.2768 31.5L 35.9753 31.5L 29.7568 18.5562L 24.2768 31.5ZM 29.7774 0L 0 10.4313L 4.70514 49.2658L 29.809 63L 55.042 49.0803L 59.7454 10.2467L 29.7774 0ZM 21.8547 37.0023L 18.2039 46.094L 11.3793 46.122L 29.7754 5.5658L 29.7401 5.48927L 29.7079 5.48927L 29.7079 5.42274L 29.7401 5.48927L 29.8105 5.48927L 29.8723 5.35221L 29.8723 5.48927L 29.8105 5.48927L 29.7754 5.5658L 48.9657 46.2911L 42.3958 46.1475L 38.3546 36.8537L 29.7251 36.8947L 21.8547 37.0023Z"/>
+</defs>
+</svg>

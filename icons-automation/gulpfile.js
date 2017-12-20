@@ -1,0 +1,69 @@
+var gulp = require('gulp');
+var iconfont = require('gulp-iconfont');
+var iconfontCss = require('gulp-iconfont-css');    
+var svgo = require('gulp-svgo');
+var inlineFonts = require('gulp-inline-fonts');
+var del = require('del');
+
+var runTimestamp = Math.round(Date.now()/1000);
+var fontName = 'qgrid-iconfont';
+
+var del = require('del');
+
+gulp.task('clean', function () {
+  return del([
+    'optimized_icons/*',
+    'output/*',
+  ]);
+});
+
+gulp.task('svgo', ['clean'], function() {
+    return gulp.src('raw_icons/*')
+        .pipe(svgo())
+        .pipe(gulp.dest('optimized_icons/'));
+});
+
+gulp.task('iconfont', ['svgo'], function(){
+  return gulp.src(['optimized_icons/*.svg'])
+    .pipe(iconfont({
+      fontName: fontName, 
+      prependUnicode: true,
+      formats: ['woff2'], // 'ttf', 'eot', 'woff', 'woff2'
+      timestamp: runTimestamp, 
+	  normalize: true
+    }))
+      .on('glyphs', function(glyphs, options) {
+        console.log(glyphs, options);
+      })
+    .pipe(gulp.dest('output/fonts/'));
+});
+
+gulp.task('iconfontCss', ['svgo'], function(){
+  gulp.src(['optimized_icons/*.svg'])
+    .pipe(iconfontCss({
+      fontName: fontName,
+      // path: 'output/_icons.scss',
+      targetPath: 'qgrid-icons.css',
+      // fontPath: 'output/fonts/'
+    }))
+    .pipe(iconfont({
+      fontName: fontName, 
+      prependUnicode: true,
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'], 
+      timestamp: runTimestamp, 
+	  normalize: true
+     }))
+    .pipe(gulp.dest('output/'));
+});
+
+
+gulp.task('embedFont', ['iconfont'], function() {
+return gulp.src(['output/fonts/*'])
+  .pipe(inlineFonts({ name: 'qgrid-icons' }))
+  .pipe(gulp.dest('output/fonts/'));
+});
+ 
+
+
+gulp.task('default', ['clean', 'svgo', 'iconfontCss']);
+gulp.task('embedded', ['clean', 'svgo', 'iconfont', 'embedFont']);

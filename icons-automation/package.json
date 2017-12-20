@@ -1,0 +1,20 @@
+{
+  "name": "qgrid-theme-icons-auto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ilya Litmanovich",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-iconfont": "^9.0.2",
+    "gulp-iconfont-css": "^2.1.0",
+    "gulp-inline-fonts": "^1.0.4",
+    "gulp-svgo": "^1.2.5"
+  },
+  "dependencies": {}
+}
