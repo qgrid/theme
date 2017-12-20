@@ -1,6 +1,6 @@
 var gulp = require('gulp');
 var iconfont = require('gulp-iconfont');
-var iconfontCss = require('gulp-iconfont-css');    
+var iconfontCss = require('gulp-iconfont-css');
 var svgo = require('gulp-svgo');
 var inlineFonts = require('gulp-inline-fonts');
 var del = require('del');
@@ -13,7 +13,7 @@ var del = require('del');
 gulp.task('clean', function () {
   return del([
     'optimized_icons/*',
-    'output/*',
+    'dist/*',
   ]);
 });
 
@@ -26,43 +26,43 @@ gulp.task('svgo', ['clean'], function() {
 gulp.task('iconfont', ['svgo'], function(){
   return gulp.src(['optimized_icons/*.svg'])
     .pipe(iconfont({
-      fontName: fontName, 
+      fontName: fontName,
       prependUnicode: true,
       formats: ['woff2'], // 'ttf', 'eot', 'woff', 'woff2'
-      timestamp: runTimestamp, 
+      timestamp: runTimestamp,
 	  normalize: true
     }))
       .on('glyphs', function(glyphs, options) {
         console.log(glyphs, options);
       })
-    .pipe(gulp.dest('output/fonts/'));
+    .pipe(gulp.dest('dist/fonts/'));
 });
 
 gulp.task('iconfontCss', ['svgo'], function(){
   gulp.src(['optimized_icons/*.svg'])
     .pipe(iconfontCss({
       fontName: fontName,
-      // path: 'output/_icons.scss',
+      // path: 'dist/_icons.scss',
       targetPath: 'qgrid-icons.css',
-      // fontPath: 'output/fonts/'
+      // fontPath: 'dist/fonts/'
     }))
     .pipe(iconfont({
-      fontName: fontName, 
+      fontName: fontName,
       prependUnicode: true,
-      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'], 
-      timestamp: runTimestamp, 
+      formats: ['ttf', 'eot', 'woff', 'woff2', 'svg'],
+      timestamp: runTimestamp,
 	  normalize: true
      }))
-    .pipe(gulp.dest('output/'));
+    .pipe(gulp.dest('dist/'));
 });
 
 
 gulp.task('embedFont', ['iconfont'], function() {
-return gulp.src(['output/fonts/*'])
+return gulp.src(['dist/fonts/*'])
   .pipe(inlineFonts({ name: 'qgrid-icons' }))
-  .pipe(gulp.dest('output/fonts/'));
+  .pipe(gulp.dest('dist/fonts/'));
 });
- 
+
 
 
 gulp.task('default', ['clean', 'svgo', 'iconfontCss']);
