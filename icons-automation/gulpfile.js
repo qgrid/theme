@@ -18,7 +18,7 @@ gulp.task('clean', function () {
 });
 
 gulp.task('svgo', ['clean'], function() {
-    return gulp.src('raw_icons/*')
+    return gulp.src('icons/*')
         .pipe(svgo())
         .pipe(gulp.dest('optimized_icons/'));
 });
