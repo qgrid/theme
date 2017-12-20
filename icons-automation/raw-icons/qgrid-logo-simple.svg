@@ -1,0 +1,12 @@
+<svg width="439" height="288" viewBox="0 0 439 288" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>qgrid-logo-simple</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-284 -1830)">
+<g id="qgrid-logo-simple">
+<use xlink:href="#path0_fill" transform="translate(284 1830)" fill="#FFFFFF"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" fill-rule="evenodd" d="M 0 288L 240.674 245.905L 439 246L 439 131.812L 356.125 131.812L 356.125 169.875L 394.375 169.875L 394.375 201.594L 279.625 201.594L 279.625 87.4062L 439 87.4062L 439 43L 240.674 42.9051L 0 0L 0 288ZM 197.229 81.976L 197.229 206.662L 173.256 210.818L 152.506 169.691L 108.193 169.691L 132.508 217.882L 44.596 233.121L 44.596 55.5168L 197.229 81.976Z"/>
+</defs>
+</svg>

@@ -1,0 +1,14 @@
+<svg width="51" height="67" viewBox="0 0 51 67" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>backbonejs-plain</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-2475 -435)">
+<g id="backbonejs-plain">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(2475.22 435.888)" fill="#FFFFFF"/>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 25.3918 15.1447L 0 4.45438e-08L 0 66L 25.3918 50.8553L 50.7836 66L 50.7836 4.45438e-08L 25.3918 15.1447L 25.3918 15.1447ZM 13.325 32.9995L 25.953 25.4556L 38.5805 32.9995L 25.953 40.5444L 13.325 32.9995ZM 8.80939 14.4984L 17.8432 19.8953L 8.80939 25.2927L 8.80939 14.4984ZM 8.80939 40.7073L 17.1659 45.699L 8.80939 50.6919L 8.80939 40.7073ZM 42.4924 50.6919L 34.1354 45.6996L 42.4924 40.7073L 42.4924 50.6919ZM 33.4581 19.8947L 42.4924 14.4984L 42.4924 25.2927L 33.4581 19.8947Z"/>
+</defs>
+</svg>
