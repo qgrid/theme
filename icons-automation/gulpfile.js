@@ -12,19 +12,19 @@ var del = require('del');
 
 gulp.task('clean', function () {
   return del([
-    'optimized_icons/*',
+    'optimized-icons/*',
     'dist/*',
   ]);
 });
 
 gulp.task('svgo', ['clean'], function() {
-    return gulp.src('icons/*')
+    return gulp.src('raw-icons/*')
         .pipe(svgo())
-        .pipe(gulp.dest('optimized_icons/'));
+        .pipe(gulp.dest('optimized-icons/'));
 });
 
 gulp.task('iconfont', ['svgo'], function(){
-  return gulp.src(['optimized_icons/*.svg'])
+  return gulp.src(['optimized-icons/*.svg'])
     .pipe(iconfont({
       fontName: fontName,
       prependUnicode: true,
@@ -39,7 +39,7 @@ gulp.task('iconfont', ['svgo'], function(){
 });
 
 gulp.task('iconfontCss', ['svgo'], function(){
-  gulp.src(['optimized_icons/*.svg'])
+  gulp.src(['optimized-icons/*.svg'])
     .pipe(iconfontCss({
       fontName: fontName,
       // path: 'dist/_icons.scss',
