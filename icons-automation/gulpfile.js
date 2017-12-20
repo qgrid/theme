@@ -42,7 +42,7 @@ gulp.task('iconfontCss', ['svgo'], function(){
   gulp.src(['optimized-icons/*.svg'])
     .pipe(iconfontCss({
       fontName: fontName,
-      targetPath: 'qgrid-icons.css',
+      targetPath: fontName+'.css',
     }))
     .pipe(iconfont({
       fontName: fontName,
@@ -57,8 +57,8 @@ gulp.task('iconfontCss', ['svgo'], function(){
 
 gulp.task('embedFont', ['iconfont'], function() {
 return gulp.src(['dist/*'])
-  .pipe(inlineFonts({ name: 'qgrid-icons' }))
-  .pipe(gulp.dest('dist/embedded/'));
+  .pipe(inlineFonts({ name: fontName }))
+  .pipe(gulp.dest('dist/embedded'));
 });
 
 
